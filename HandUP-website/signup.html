@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandUP | Sign up</title>
+  <link rel="stylesheet" href="signup.css" />
+</head>
+
+<body>
+  <header class="auth-header">
+    <div class="container-wide auth-nav">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">HandUP</span>
+      </a>
+      <a class="btn btn-ghost" href="index.html">Back to Home</a>
+    </div>
+  </header>
+
+  <main class="auth-main">
+    <section class="auth-card" aria-label="Sign up">
+      <h1>Sign up</h1>
+
+      <!-- FORM -->
+      <form class="auth-form" id="signupForm">
+
+        <div class="name-row">
+          <label class="field">
+            <span>First name</span>
+            <input id="firstName" type="text" placeholder="First name" required />
+          </label>
+
+          <label class="field">
+            <span>Last name</span>
+            <input id="lastName" type="text" placeholder="Last name" required />
+          </label>
+        </div>
+
+        <label class="field">
+          <span>Email</span>
+          <input id="email" type="email" placeholder="you@example.com" required />
+        </label>
+
+        <label class="field">
+          <span>Password</span>
+          <input id="password" type="password" placeholder="Create a password" required />
+        </label>
+
+        <label class="field">
+          <span>Confirm password</span>
+          <input id="confirmPassword" type="password" placeholder="Confirm your password" required />
+        </label>
+
+        <label class="remember">
+          <input type="checkbox" required />
+          <span>
+            I agree to the
+            <a class="link" href="#">Terms</a> and
+            <a class="link" href="#">Privacy Policy</a>
+          </span>
+        </label>
+
+        <button class="btn btn-primary btn-full" type="submit">
+          Create account
+        </button>
+
+      </form>
+
+      <div class="divider">
+        <span>or</span>
+      </div>
+
+      <!-- SOCIAL LOGIN (we can wire later) -->
+      <div class="social">
+        <button id="googleSignup" class="btn btn-social" type="button">
+          <span class="icon">G</span> Continue with Google
+        </button>
+
+        <button class="btn btn-social" type="button">
+          <span class="icon"></span> Continue with Apple
+        </button>
+
+        <button class="btn btn-social" type="button">
+          <span class="icon">f</span> Continue with Facebook
+        </button>
+      </div>
+
+      <p class="bottom">
+        Already have an account?
+        <a class="link" href="login.html">Log in</a>
+      </p>
+
+    </section>
+  </main>
+  <script type="module" src="./js/signup.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+node_modules/
+.env
+.env.*
+.DS_Store
+*.zip
+.expo/
+dist/
+build/
+HandUP-website/js/firebase-config.js

@@ -1,0 +1,188 @@
+<!-- create-event.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandUP | Create Event</title>
+  <link rel="stylesheet" href="create-event.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container-wide">
+      <div class="nav">
+        <a class="brand" href="browse.html">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>HandUP</span>
+        </a>
+
+        <div class="nav-right">
+          <div class="nav-links">
+            <a href="browse.html">Explore</a>
+            <a href="create-event.html">Create</a>
+          </div>
+
+          <div class="nav-actions">
+            <span class="user-pill" id="userName">User</span>
+            <button class="btn btn-ghost" id="logoutBtn" type="button">Sign out</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="page-hero">
+      <h1>Create a New Event</h1>
+      <p class="muted">Add a community service opportunity volunteers can request to join.</p>
+    </section>
+
+    <section class="layout">
+      <!-- Form -->
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Event Details</h2>
+          <p class="muted">Fill in the information below.</p>
+        </div>
+
+        <!-- IMPORTANT: FORM ID -->
+        <form id="createEventForm">
+          <div class="form-grid">
+
+            <div class="field">
+              <label for="title">Event Title</label>
+              <input id="title" type="text" placeholder="e.g., Park Cleanup" required />
+            </div>
+
+            <div class="field">
+              <label for="date">Date</label>
+              <input id="date" type="date" required />
+            </div>
+
+            <div class="field">
+              <label for="time">Start Time *</label>
+              <input id="time" type="time" required />
+            </div>
+
+            <div class="field">
+              <label for="location">Location</label>
+              <input id="location" type="text" placeholder="e.g., Logan, UT" required />
+            </div>
+
+            <div class="field">
+              <label for="category">Category</label>
+              <select id="category" required>
+                <option value="">Select one</option>
+                <option value="environment">Environment</option>
+                <option value="food">Food & Pantry</option>
+                <option value="community">Community</option>
+                <option value="education">Education</option>
+                <option value="health">Health</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="spots">Volunteer Spots</label>
+              <input id="spots" type="number" min="1" placeholder="e.g., 20" />
+            </div>
+
+            <div class="field full">
+              <label for="description">Description</label>
+              <textarea
+                id="description"
+                rows="5"
+                placeholder="Describe what volunteers will do..."
+              ></textarea>
+            </div>
+
+            <div class="field">
+              <label for="contactName">Contact Name (optional)</label>
+              <input id="contactName" type="text" placeholder="e.g., Maria Lopez" />
+            </div>
+
+            <div class="field">
+              <label for="contactEmail">Contact Email (optional)</label>
+              <input id="contactEmail" type="email" placeholder="e.g., maria@email.com" />
+            </div>
+
+          </div>
+
+          <div class="form-actions">
+            <button class="btn btn-secondary" id="clearBtn" type="button">Clear</button>
+            <button class="btn btn-primary" type="submit">Create Event</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Preview -->
+      <aside class="panel panel-accent">
+        <div class="panel-head">
+          <h2>Preview</h2>
+          <p class="muted">This is what volunteers will see.</p>
+        </div>
+
+        <div class="preview-card" aria-live="polite">
+          <div class="preview-top">
+            <div>
+              <h3 id="prevTitle">Event Title</h3>
+              <div class="muted" id="prevMeta">Date • Time • Location</div>
+            </div>
+            <span class="pill" id="prevCategory">Category</span>
+          </div>
+
+          <hr class="dash-hr" />
+
+          <p class="preview-desc muted" id="prevDesc">
+            Add a description to help volunteers understand what they’ll be doing.
+          </p>
+
+          <div class="preview-bottom">
+            <span class="pill" id="prevSpots">Spots: —</span>
+            <span class="pill" id="prevContact">Contact: —</span>
+          </div>
+        </div>
+
+        <div class="toast muted" id="createToast" hidden>
+          Event created ✅
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container-wide">
+      <div class="footer-grid">
+        <a class="brand brand-footer" href="browse.html">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>HandUP</span>
+        </a>
+
+        <div class="footer-right">
+          <nav class="footer-links-inline">
+            <a href="browse.html">Explore</a>
+            <a href="create-event.html">Create</a>
+          </nav>
+          <span class="muted">© <span id="year"></span> HandUP</span>
+        </div>
+      </div>
+      <div class="footer-bottom muted">
+        Built for community service—find opportunities, request to join, and help local organizers.
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="./js/guard.js"></script>
+
+  <script type="module" src="./js/profile.js"></script>
+  <script type="module" src="./js/logout.js"></script>
+  <script type="module" src="./js/create-event.js"></script>
+
+  <script>
+    // footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

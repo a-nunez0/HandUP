@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandUP | Settings</title>
+  <link rel="stylesheet" href="settings.css" />
+  <script type="module" src="js/settings.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a href="browse.html" class="brand">HandUP</a>
+
+      <nav class="top-nav">
+        <a href="browse.html">Browse</a>
+        <a href="create-event.html">Create Event</a>
+        <a href="volunteer-dashboard.html">Dashboard</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="settings-page">
+    <section class="settings-card">
+      <div class="settings-header">
+        <p class="eyebrow">Account</p>
+        <h1>Settings</h1>
+        <p class="subtext">View and update your HandUP profile.</p>
+
+        <button type="button" id="editBtn" class="btn btn-secondary">
+          Edit Profile
+        </button>
+      </div>
+
+      <div id="message" class="message hidden"></div>
+
+      <form id="settingsForm" class="settings-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input
+              type="text"
+              id="firstName"
+              name="firstName"
+              placeholder="First name"
+              disabled
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input
+              type="text"
+              id="lastName"
+              name="lastName"
+              placeholder="Last name"
+              disabled
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            readonly
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            placeholder="Enter your phone number"
+            disabled
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="location">Location</label>
+          <input
+            type="text"
+            id="location"
+            name="location"
+            placeholder="City, State"
+            disabled
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="bio">Bio</label>
+          <textarea
+            id="bio"
+            name="bio"
+            rows="5"
+            placeholder="Tell people a little about yourself..."
+            disabled
+          ></textarea>
+        </div>
+
+        <div class="action-row">
+          <button type="submit" id="saveBtn" class="btn btn-primary hidden">
+            Save Changes
+          </button>
+
+          <button type="button" id="logoutBtn" class="btn btn-secondary">
+            Log Out
+          </button>
+        </div>
+      </form>
+
+      <section class="danger-zone">
+        <h2>Danger Zone</h2>
+        <p>Deleting your account is permanent and cannot be undone.</p>
+        <button type="button" id="deleteBtn" class="btn btn-danger">
+          Delete Account
+        </button>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

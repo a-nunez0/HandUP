@@ -1,0 +1,95 @@
+<!-- browse.html (matches your browse.css exactly) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandUP | Browse Opportunities</title>
+
+  <link rel="stylesheet" href="browse.css" />
+</head>
+
+<body>
+  <!-- ====== Header / Nav ====== -->
+  <header class="site-header">
+    <div class="container-wide">
+      <nav class="nav">
+        <a class="brand" href="browse.html">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>HandUP</span>
+        </a>
+
+        <div class="nav-right">
+          <div class="nav-links">
+            <a class="active-link" href="browse.html">Browse</a>
+            <a href="volunteer-dashboard.html">Dashboard</a>
+            <a href="my-events.html">My Events</a>
+          </div>
+
+          <a href="settings.html" class="user-pill" id="userName">User</a>
+          <button class="btn btn-ghost" id="logoutBtn" type="button">Sign out</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ====== Page ====== -->
+  <main class="page">
+    <div class="container">
+
+      <section class="page-head">
+        <div>
+          <h1>Browse Opportunities</h1>
+          <p class="muted">Find local service events and request to join.</p>
+        </div>
+
+        <a class="btn btn-primary" href="create-event.html">+ Create Event</a>
+      </section>
+
+      <!-- ====== Filters ====== -->
+      <section class="filters panel" aria-label="Filters">
+        <input id="q" type="search" placeholder="Search events..." aria-label="Search events" />
+
+        <select id="loc" aria-label="Filter by location">
+          <option value="all">Any location</option>
+          <option value="logan">Logan</option>
+          <option value="saltlake">Salt Lake City</option>
+          <option value="ogden">Ogden</option>
+        </select>
+
+        <select id="cat" aria-label="Filter by category">
+          <option value="all">Any category</option>
+          <option value="environment">Environment</option>
+          <option value="food">Food Bank</option>
+          <option value="tutoring">Tutoring</option>
+          <option value="community">Community</option>
+          <option value="education">Education</option>
+          <option value="health">Health</option>
+          <option value="other">Other</option>
+        </select>
+
+        <button class="btn btn-secondary" id="clearBtn" type="button">Clear</button>
+        <button class="btn btn-primary" id="applyBtn" type="button">Apply</button>
+      </section>
+            <!-- ====== Events ====== -->
+            <section class="grid" id="eventsGrid" aria-label="Events list">
+
+            </section>
+
+      <p class="empty muted" id="emptyEvents">No events yet. Create one to see it here.</p>
+    </div>
+  </main>
+
+  <!-- Toast -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="./js/profile.js"></script>
+  <script type="module" src="./js/logout.js"></script>
+
+  <!-- needed because browse-events imports requestToJoinEvent -->
+  <script type="module" src="./js/join-request.js"></script>
+
+  <script type="module" src="./js/browse-events.js"></script>
+  <script type="module" src="./js/guard.js"></script>
+</body>
+</html>

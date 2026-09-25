@@ -1,0 +1,122 @@
+<!-- organizer-dashboard.html  (repurposed as "My Events") -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandUP | My Events</title>
+  <link rel="stylesheet" href="my-events.css?v=9999" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container-wide">
+      <div class="nav">
+        <a class="brand" href="browse.html">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>HandUP</span>
+        </a>
+
+        <div class="nav-right">
+          <div class="nav-links">
+            <a href="browse.html">Browse</a>
+            <a href="create-event.html">Create</a>
+            <!-- Keep filename the same, just rename the label -->
+            <a class="active-link" href="my-events.html">My Events</a>
+          </div>
+
+          <span class="user-pill" id="userName">User</span>
+          <button class="btn btn-ghost" id="logoutBtn" type="button">Sign out</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="dash-hero" style="padding-bottom:.6rem;">
+      <div class="dash-hero-grid" style="grid-template-columns: 1.2fr .8fr;">
+        <div>
+          <h1>My Events</h1>
+          <p class="muted">Manage events you created and handle join requests.</p>
+        </div>
+
+        <!-- Controls (for requests) -->
+        <div class="dash-controls panel">
+          <div class="dash-controls-row two">
+            <div>
+              <label class="muted" for="statusFilter">Request Status</label>
+              <select id="statusFilter">
+                <option value="pending">Pending</option>
+                <option value="all">All</option>
+                <option value="approved">Approved</option>
+                <option value="rejected">Rejected</option>
+                <option value="completed">Completed</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="muted" for="sortBy">Sort</label>
+              <select id="sortBy">
+                <option value="newest">Newest</option>
+                <option value="oldest">Oldest</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="dash-controls-row">
+            <label class="muted" for="searchInput">Search</label>
+            <input id="searchInput" type="text" placeholder="Search by event or volunteer..." />
+          </div>
+
+          <div class="dash-controls-actions">
+            <button class="btn btn-secondary" id="refreshBtn" type="button">Refresh</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT -->
+    <section class="dash-grid" style="grid-template-columns: 1fr;">
+      <!-- My created events -->
+      <div class="panel" style="margin-bottom: 1rem;">
+        <div class="panel-head">
+          <h2>Events I Created</h2>
+          <p class="muted results" id="myEventsCount">0 events</p>
+        </div>
+
+        <ul id="myEventsList" class="dash-list"></ul>
+
+        <div id="myEventsEmpty" class="panel dash-empty" style="display:none;">
+          <h2>No events yet</h2>
+          <p class="muted">Create an event and it will show up here.</p>
+        </div>
+      </div>
+
+      <!-- Requests -->
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Join Requests</h2>
+          <p class="muted results" id="resultsCount">0 results</p>
+        </div>
+
+        <ul id="requestsList" class="dash-list"></ul>
+
+        <!-- IMPORTANT: your existing JS used emptyRequests (keep this id) -->
+        <div id="emptyRequests" class="panel dash-empty" style="display:none;">
+          <h2>No requests found</h2>
+          <p class="muted">When volunteers request to join your events, they’ll show up here.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- user + logout -->
+  <script type="module" src="./js/profile.js"></script>
+  <script type="module" src="./js/logout.js"></script>
+
+  <!-- page logic (keep your existing filename) -->
+  <script type="module" src="./js/organizer-dashboard.js"></script>
+</body>
+</html>

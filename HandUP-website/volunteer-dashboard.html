@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandUP | Volunteer Dashboard</title>
+  <link rel="stylesheet" href="volunteer-dashboard.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container-wide">
+      <div class="nav">
+        <a class="brand" href="browse.html">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>HandUP</span>
+        </a>
+
+        <div class="nav-right">
+          <div class="nav-links">
+            <a href="browse.html">Browse</a>
+            <a href="volunteer-dashboard.html" aria-current="page">Dashboard</a>
+            <a href="create-event.html">Create</a>
+          </div>
+
+          <div class="nav-actions">
+            <span class="user-pill" id="userName">User</span>
+            <button class="btn btn-ghost" id="logoutBtn" type="button">Sign out</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Dashboard hero -->
+    <section class="dash-hero">
+      <div class="dash-hero-grid">
+        <div>
+          <h1>Volunteer Dashboard</h1>
+          <p class="muted">Track your requests, approvals, and completed service events.</p>
+        </div>
+
+        <div class="dash-controls panel">
+          <div class="dash-controls-row">
+            <label class="muted" for="searchInput">Search</label>
+            <input id="searchInput" type="text" placeholder="Search by event name or location..." />
+          </div>
+
+          <div class="dash-controls-row two">
+            <div>
+              <label class="muted" for="statusFilter">Status</label>
+              <select id="statusFilter">
+                <option value="all">All</option>
+                <option value="pending">Pending</option>
+                <option value="approved">Approved</option>
+                <option value="completed">Completed</option>
+                <option value="rejected">Rejected</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="muted" for="sortBy">Sort</label>
+              <select id="sortBy">
+                <option value="dateAsc">Date (soonest)</option>
+                <option value="dateDesc">Date (latest)</option>
+                <option value="nameAsc">Name (A–Z)</option>
+                <option value="nameDesc">Name (Z–A)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="dash-controls-actions">
+            <button class="btn btn-secondary" id="resetFiltersBtn" type="button">Reset</button>
+            <a class="btn btn-primary" href="browse.html">Explore Opportunities</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="dash-stats">
+      <div class="card stat-card">
+        <h3>Pending</h3>
+        <p class="stat-value" id="statPending">0</p>
+        <p class="muted">Waiting for approval</p>
+      </div>
+
+      <div class="card stat-card">
+        <h3>Approved</h3>
+        <p class="stat-value" id="statApproved">0</p>
+        <p class="muted">You’re confirmed</p>
+      </div>
+
+      <div class="card stat-card">
+        <h3>Completed</h3>
+        <p class="stat-value" id="statCompleted">0</p>
+        <p class="muted">Past events served</p>
+      </div>
+    </section>
+
+    <!-- Tabs -->
+    <section class="dash-tabs">
+      <button class="btn btn-ghost tab active" data-tab="all" type="button">All</button>
+      <button class="btn btn-ghost tab" data-tab="upcoming" type="button">Upcoming</button>
+      <button class="btn btn-ghost tab" data-tab="history" type="button">History</button>
+      <p class="muted results" id="resultsCount">0 results</p>
+    </section>
+
+    <!-- Main content -->
+    <section class="dash-grid">
+      <div class="panel">
+        <div class="panel-head">
+          <h2>Your Events</h2>
+          <p class="muted">Manage your requests and progress.</p>
+        </div>
+
+        <ul id="eventsList" class="dash-list"></ul>
+
+        <div id="emptyState" class="panel dash-empty" style="display:none;">
+          <h2>No events found</h2>
+          <p class="muted">Try changing your search or filters.</p>
+          <a class="btn btn-primary" href="browse.html">Explore Opportunities</a>
+        </div>
+      </div>
+
+      <aside class="panel panel-accent">
+        <h2>Next Steps</h2>
+        <ul class="muted">
+          <li>Request to join events in Explore.</li>
+          <li>Wait for organizer approval.</li>
+          <li>Show up and serve.</li>
+          <li>Mark completed after the event.</li>
+        </ul>
+        <hr class="dash-hr" />
+        <p class="muted" style="margin:0;">
+          Later, Firebase will load your real events and statuses automatically.
+        </p>
+      </aside>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container-wide">
+      <div class="footer-grid">
+        <a class="brand brand-footer" href="browse.html">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>HandUP</span>
+        </a>
+
+        <div class="footer-right">
+          <div class="footer-links-inline">
+            <a href="browse.html">Explore</a>
+            <a href="volunteer-dashboard.html">Dashboard</a>
+            <a href="create-event.html">Create</a>
+          </div>
+          <span class="muted">© <span id="year"></span> HandUP</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="muted" style="margin:0;">Built for community service—find opportunities and serve.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="./js/profile.js"></script>
+  <script type="module" src="./js/logout.js"></script>
+  <script type="module" src="./js/volunteer-dashboard.js"></script>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandUP | Event Details</title>
+  <link rel="stylesheet" href="event-details.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container-wide">
+      <nav class="nav">
+        <a class="brand" href="browse.html">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>HandUP</span>
+        </a>
+
+        <div class="nav-right">
+          <div class="nav-links">
+            <a href="browse.html">Browse</a>
+            <a href="volunteer-dashboard.html">Dashboard</a>
+            <a href="my-events.html">My Events</a>
+          </div>
+
+          <span class="user-pill" id="userName">User</span>
+          <button class="btn btn-ghost" id="logoutBtn" type="button">Sign out</button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="container">
+
+      <!-- Head -->
+      <section class="details-head">
+        <a class="back-link" href="browse.html">← Back to Browse</a>
+
+        <div class="head-row">
+          <div>
+            <span class="pill" id="eventCategory">Category</span>
+            <h1 class="title" id="eventTitle">Event Title</h1>
+            <p class="subtitle muted">Full event details, requirements, and join request.</p>
+          </div>
+
+          <div class="head-actions">
+            <button class="btn btn-secondary" type="button" disabled>Save</button>
+
+            <!-- JOIN (wired by join-request.js) -->
+            <button class="btn btn-primary" id="joinBtnTop" type="button">
+              Request to join
+            </button>
+
+            <!-- CANCEL (wired by join-request.js) -->
+            <button class="btn btn-secondary" id="cancelBtnTop" type="button" style="display:none;">
+              Cancel request
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3 cards -->
+      <section class="cards-3">
+
+        <!-- Event Info -->
+        <article class="info-card">
+          <div class="info-top">
+            <h2>Event Info</h2>
+            <span class="chip">Spots: <span id="eventSpots">0</span></span>
+          </div>
+
+          <div class="info-grid">
+            <div>
+              <div class="k muted">Location</div>
+              <div class="v" id="eventLocation">—</div>
+            </div>
+
+            <div>
+              <div class="k muted">Date</div>
+              <div class="v" id="eventDate">—</div>
+            </div>
+
+            <div>
+              <div class="k muted">Time</div>
+              <div class="v" id="eventTime">—</div>
+            </div>
+
+            <div>
+              <div class="k muted">Category</div>
+              <div class="v" id="eventCategoryText">—</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Organizer -->
+        <article class="info-card">
+          <div class="info-top">
+            <h2>Organizer</h2>
+            <span class="chip">Verified</span>
+          </div>
+
+          <div class="org">
+            <div class="avatar">HU</div>
+            <div>
+              <div class="org-name" id="organizerName">Organizer</div>
+              <div class="org-sub muted">Community Organizer • Responds within 24 hrs</div>
+            </div>
+          </div>
+
+          <div class="org-actions">
+            <button class="btn btn-secondary" type="button" disabled>Message</button>
+            <button class="btn btn-secondary" type="button" disabled>Contact info</button>
+          </div>
+
+          <p class="muted small-note">
+            (For now these buttons are UI-only. Later we’ll connect them to Firebase.)
+          </p>
+        </article>
+
+        <!-- Quick Actions -->
+        <article class="info-card">
+          <div class="info-top">
+            <h2>Quick Actions</h2>
+
+            <!-- STATUS CHIP (wired by join-request.js if present) -->
+            <span class="chip" id="qaStatusChip">Status: Not requested</span>
+          </div>
+
+          <div class="qa">
+            <!-- JOIN -->
+            <button class="btn btn-primary" id="joinBtnQuick" type="button">
+              Request to join
+            </button>
+
+            <!-- CANCEL -->
+            <button class="btn btn-secondary" id="cancelBtnQuick" type="button" style="display:none;">
+              Cancel request
+            </button>
+
+            <button class="btn btn-secondary" type="button" disabled>Share</button>
+            <button class="btn btn-secondary" type="button" disabled>Report</button>
+          </div>
+
+          <!-- MESSAGE AREA (wired by join-request.js if present) -->
+          <p class="muted small-note" id="joinMsg"></p>
+        </article>
+
+      </section>
+
+      <!-- Sections -->
+      <section class="sections">
+        <div class="panel section">
+          <h2>Description</h2>
+          <p class="muted" id="eventDescription">No description provided.</p>
+        </div>
+
+        <div class="panel section">
+          <h2>What to bring</h2>
+          <ul class="muted">
+            <li>Closed-toe shoes</li>
+            <li>Water bottle</li>
+            <li>Comfortable clothes</li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- (5) Global guard -->
+  <script type="module" src="./js/guard.js"></script>
+
+  <!-- User + logout -->
+  <script type="module" src="./js/profile.js"></script>
+  <script type="module" src="./js/logout.js"></script>
+
+  <!-- Load event content -->
+  <script type="module" src="./js/event-details.js"></script>
+
+  <!-- (3 + 4) Join/Cancel wiring -->
+  <script type="module" src="./js/join-request.js"></script>
+</body>
+</html>

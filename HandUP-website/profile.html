@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HandUP | Profile</title>
+  <link rel="stylesheet" href="profile.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container-wide">
+      <div class="nav">
+        <a class="brand" href="browse.html">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>HandUP</span>
+        </a>
+
+        <div class="nav-right">
+          <div class="nav-links">
+            <a href="browse.html">Explore</a>
+            <a href="create-event.html">Create</a>
+          </div>
+
+          <div class="nav-actions">
+            <a href="settings.html" class="user-pill" id="userName">User</a>
+            <button class="btn btn-ghost" id="logoutBtn" type="button">Sign out</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="profile-container">
+    <section class="profile-hero">
+      <div class="profile-header-card">
+        <div class="profile-header">
+          <div class="profile-avatar" id="profileAvatar">U</div>
+
+          <div class="profile-info">
+            <h1 id="profileName">User Name</h1>
+            <p class="muted" id="profileLocation">Location</p>
+          </div>
+        </div>
+
+        <section class="profile-stats">
+          <div class="stat-card">
+            <span id="eventsOrganized">0</span>
+            <p>Events Organized</p>
+          </div>
+
+          <div class="stat-card">
+            <span id="eventsVolunteered">0</span>
+            <p>Events Volunteered</p>
+          </div>
+
+          <div class="stat-card">
+            <span id="peopleHelped">0</span>
+            <p>People Helped</p>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="profile-section">
+      <div class="section-head">
+        <h2>Events Organized</h2>
+        <p class="muted">Events this user has created.</p>
+      </div>
+
+      <div id="organizedEvents" class="profile-events-grid"></div>
+    </section>
+
+    <section class="profile-section">
+      <div class="section-head">
+        <h2>Volunteer History</h2>
+        <p class="muted">Completed events this user has volunteered for.</p>
+      </div>
+
+      <div id="volunteerEvents" class="profile-events-grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container-wide">
+      <div class="footer-grid">
+        <a class="brand brand-footer" href="browse.html">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>HandUP</span>
+        </a>
+
+        <div class="footer-right">
+          <nav class="footer-links-inline">
+            <a href="browse.html">Explore</a>
+            <a href="create-event.html">Create</a>
+          </nav>
+          <span class="muted">© <span id="year"></span> HandUP</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom muted">
+        Built for community service—find opportunities, request to join, and help local organizers.
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="./js/guard.js"></script>
+  <script type="module" src="./js/profile.js"></script>
+  <script type="module" src="./js/logout.js"></script>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
